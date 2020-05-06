@@ -9,7 +9,7 @@ import com.capg.omts.entity.MovieBean;
 public interface IMovieService {
 	public MovieBean addMovie(MovieBean bean);
 
-	public MovieBean removeMovie(int movieId);
+	public String removeMovie(int movieId);
 
 	public List<MovieBean> listOfMovies();
 

@@ -16,7 +16,7 @@ import com.capg.omts.entity.MovieBean;
 public class MovieDaoImpl implements IMovieDao {
 	// EntityManager is used to access a database in a particular application
 	@PersistenceContext
-	EntityManager em;
+	EntityManager entitymanager;
 
 	/*
 	 * this method will add movie to the database and return bean to the service
@@ -24,7 +24,7 @@ public class MovieDaoImpl implements IMovieDao {
 	 */
 	@Override
 	public MovieBean addMovie(MovieBean bean) {
-		em.persist(bean);
+		entitymanager.persist(bean);
 		return bean;
 	}
 	/*
@@ -33,10 +33,10 @@ public class MovieDaoImpl implements IMovieDao {
 	 */
 
 	@Override
-	public MovieBean removeMovie(int movieId) {
-		MovieBean bean = em.find(MovieBean.class, movieId);
-		em.remove(bean);
-		return bean;
+	public String removeMovie(int movieId) {
+		MovieBean bean = entitymanager.find(MovieBean.class, movieId);
+		 entitymanager.remove(bean);
+		return "deleted movie successfuly";
 
 	}
 
@@ -47,7 +47,7 @@ public class MovieDaoImpl implements IMovieDao {
 	@Override
 	public List<MovieBean> listOfMovies() {
 
-		TypedQuery<MovieBean> query = em.createQuery("from MovieBean", MovieBean.class);
+		TypedQuery<MovieBean> query = entitymanager.createQuery("from MovieBean", MovieBean.class);
 		return query.getResultList();
 	}
 

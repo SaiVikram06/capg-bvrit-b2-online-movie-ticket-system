@@ -29,7 +29,7 @@ public class MovieServiceImpl implements IMovieService {
 	 * values to MovieRestcontroller by using this service layer and movie is deleted by id
 	 */
 	@Override
-	public MovieBean removeMovie(int movieId) {
+	public String removeMovie(int movieId) {
 
 		return dao.removeMovie(movieId);
 	}
@@ -43,4 +43,6 @@ public class MovieServiceImpl implements IMovieService {
 
 		return dao.listOfMovies();
 	}
+
+	
 }
