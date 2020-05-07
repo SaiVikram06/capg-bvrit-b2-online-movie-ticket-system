@@ -22,42 +22,41 @@ import javax.validation.constraints.Size;
 public class MovieBean {
 	// do not insert movieId it will be auto generated
 	@Id
-   	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	
-	
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+
 	private int movieId;
-	
+
 	@NotEmpty(message = "Movie Name is Mandatory")
 	@NotBlank(message = "Movie Name cannot be blank")
 	@Size(min = 2, message = "Name should have atleast 2 characters")
-	@Pattern(regexp ="^[A-Za-z]*$")
+	@Pattern(regexp = "^[A-Za-z]*$")
 	private String movieName;
-	
+
 	@NotEmpty(message = "Movie Director Name is Mandatory")
 	@NotBlank(message = "Movie DirectorName cannot be blank")
 	@Size(min = 3, message = "Name should have atleast 3 characters")
-	@Pattern(regexp ="^[A-Za-z]*$")
+	@Pattern(regexp = "^[A-Za-z]*$")
 	private String movieDirector;
-	
+
 	@NotNull(message = "Movie length can not be null")
-	//@NotBlank(message = "Movie length cannot be blank")
-	@Min(value=60, message = "Movie Length can not be less than 60 minutes")
-	@Max(value=180, message = "Movie Length can not be more than 180 minutes")
-	//@Pattern(regexp ="^[0-9]*$")
+
+	@Min(value = 60, message = "Movie Length can not be less than 60 minutes")
+	@Max(value = 180, message = "Movie Length can not be more than 180 minutes")
+
 	private int movieLengthInMinutes;
-	
+
 	@NotEmpty(message = "Movie Name is Mandatory")
 	@NotBlank(message = "Movie Name cannot be blank")
 	@Size(min = 4, message = "Name should have atleast 4 characters")
-	@Pattern(regexp ="^[A-Za-z]*$")
+	@Pattern(regexp = "^[A-Za-z]*$")
 	private String movieLanguage;
-	
+
 	@NotEmpty(message = "Movie Name is Mandatory")
 	@NotBlank(message = "Movie Name cannot be blank")
 	@Size(min = 4, message = "Name should have atleast 4 characters")
-	@Pattern(regexp ="^[A-Za-z]*$")
+	@Pattern(regexp = "^[A-Za-z]*$")
 	private String movieGenre;
-	
+
 	public int getMovieId() {
 		return movieId;
 	}
@@ -82,8 +81,6 @@ public class MovieBean {
 		this.movieDirector = movieDirector;
 	}
 
-	
-
 	public int getMovieLengthInMinutes() {
 		return movieLengthInMinutes;
 	}
@@ -91,8 +88,6 @@ public class MovieBean {
 	public void setMovieLengthInMinutes(int movieLengthInMinutes) {
 		this.movieLengthInMinutes = movieLengthInMinutes;
 	}
-
-	
 
 	public String getMovieLanguage() {
 		return movieLanguage;
@@ -117,14 +112,6 @@ public class MovieBean {
 				+ ", movieGenre=" + movieGenre + "]";
 	}
 
-	
-	
-		/*
-	 * public List<Show> getMovieGenre() { return movieGenre; } public void
-	 * setMovieGenre(List<Show> movieGenre) { this.movieGenre = movieGenre; } public
-	 * List<String> getLanguages() { return languages; } public void
-	 * setLanguages(List<String> languages) { this.languages = languages; }
-	 */
 	
 
 }

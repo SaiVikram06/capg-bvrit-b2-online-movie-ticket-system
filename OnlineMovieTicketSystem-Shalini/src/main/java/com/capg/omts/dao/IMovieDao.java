@@ -9,8 +9,9 @@ public interface IMovieDao {
 
 	public MovieBean addMovie(MovieBean bean);
 
-	public String removeMovie(int movieId);
+	public void removeMovie(int movieId);
 
 	public List<MovieBean> listOfMovies();
 
 }
+

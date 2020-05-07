@@ -35,46 +35,32 @@ public class MovieRestController {
 	 * of Movie once a new Movie is added successfully in to system
 	 */
 
-	
 	@PostMapping(path = "/add") // postman: POST
 	public ResponseEntity<Boolean> addMovie(@Valid @RequestBody MovieBean bean) {
 		MovieBean movie = movieServiceImpl.addMovie(bean);
 		ResponseEntity<Boolean> responseEntity = new ResponseEntity(true, HttpStatus.OK);
 		System.out.println("response entity=" + responseEntity);
 		return responseEntity;
-		//return movie.getMovieName() + " has been added" + " with movie id " + movie.getMovieId();
+		
 	}
 
-   /*
-	@PostMapping("/add")
-	public String addMovie(@RequestBody MovieBean bean) {
-		movieServiceImpl.addMovie(bean);
-		return "Your Movie details have been added";
-	}*/
-	 
-
 	/*
-	 * This deleteMovie(int movieId) method returns a message that your movie is
-	 * deleted by id. it gathers the information from service layer
+	 * This deleteMovie(int movieId) method returns whether the given id movie is deleted or not.
+	 *  it gathers the information from service layer
 	 */
 	@DeleteMapping("/delete/{movieId}") // postman: DELETE
-	public ResponseEntity<String> deleteMovie( @PathVariable int movieId) {
+	public ResponseEntity<String> deleteMovie(@PathVariable int movieId) {
 		try {
-		movieServiceImpl.removeMovie(movieId);
-		
+			movieServiceImpl.removeMovie(movieId);
 
-		ResponseEntity<String> responseEntity = new ResponseEntity(true, HttpStatus.OK);
-		System.out.println("response entity=" + responseEntity);
-		return responseEntity;
-		}
-		catch(Exception e) {
-			//System.err.println("Invalid Movie Id");
+			ResponseEntity<String> responseEntity = new ResponseEntity(true, HttpStatus.OK);
+			System.out.println("response entity=" + responseEntity);
+			return responseEntity;
+		} catch (Exception e) {
+			
 			return new ResponseEntity<String>("Invalid Movie Id", HttpStatus.BAD_REQUEST);
 		}
 
-		// MovieBean moviebean = movieServiceImpl.removeMovie(movieId);
-
-		// return "Your Movie with id: " + moviebean.getMovieId() + " has been deleted";
 	}
 
 	/*
@@ -82,13 +68,13 @@ public class MovieRestController {
 	 * the database and the values come from service layer
 	 */
 
-
 	@GetMapping("/findall") // postman: GET
 	public ResponseEntity<List<MovieBean>> getAllMovies() {
 
 		List<MovieBean> bean = movieServiceImpl.listOfMovies();
-		return new ResponseEntity<List<MovieBean>>(bean,new HttpHeaders(),HttpStatus.OK);
-		
+		return new ResponseEntity<List<MovieBean>>(bean, new HttpHeaders(), HttpStatus.OK);
+
 	}
 
 }
+
