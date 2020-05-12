@@ -29,13 +29,13 @@ public class MovieBean {
 	@NotEmpty(message = "Movie Name is Mandatory")
 	@NotBlank(message = "Movie Name cannot be blank")
 	@Size(min = 2, message = "Name should have atleast 2 characters")
-	@Pattern(regexp = "^[A-Za-z]*$")
+	@Pattern(regexp = "^[A-Z a-z]*$")
 	private String movieName;
 
 	@NotEmpty(message = "Movie Director Name is Mandatory")
 	@NotBlank(message = "Movie DirectorName cannot be blank")
 	@Size(min = 3, message = "Name should have atleast 3 characters")
-	@Pattern(regexp = "^[A-Za-z]*$")
+	@Pattern(regexp = "^[A-Z a-z]*$")
 	private String movieDirector;
 
 	@NotNull(message = "Movie length can not be null")
@@ -48,13 +48,13 @@ public class MovieBean {
 	@NotEmpty(message = "Movie Name is Mandatory")
 	@NotBlank(message = "Movie Name cannot be blank")
 	@Size(min = 4, message = "Name should have atleast 4 characters")
-	@Pattern(regexp = "^[A-Za-z]*$")
+	@Pattern(regexp = "^[A-Z a-z]*$")
 	private String movieLanguage;
 
 	@NotEmpty(message = "Movie Name is Mandatory")
 	@NotBlank(message = "Movie Name cannot be blank")
 	@Size(min = 4, message = "Name should have atleast 4 characters")
-	@Pattern(regexp = "^[A-Za-z]*$")
+	@Pattern(regexp = "^[A-Z a-z]*$")
 	private String movieGenre;
 
 	public int getMovieId() {

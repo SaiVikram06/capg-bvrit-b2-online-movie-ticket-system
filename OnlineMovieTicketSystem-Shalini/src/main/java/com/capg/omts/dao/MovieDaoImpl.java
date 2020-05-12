@@ -33,10 +33,10 @@ public class MovieDaoImpl implements IMovieDao {
 	 */
 
 	@Override
-	public void removeMovie(int movieId) {
+	public int removeMovie(int movieId) {
 		MovieBean bean = entitymanager.find(MovieBean.class, movieId);
 		 entitymanager.remove(bean);
-		
+		return movieId;
 
 	}
 

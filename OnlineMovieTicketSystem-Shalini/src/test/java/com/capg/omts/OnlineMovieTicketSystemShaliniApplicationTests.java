@@ -2,6 +2,7 @@ package com.capg.omts;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
@@ -59,7 +60,7 @@ class OnlineMovieTicketSystemShaliniApplicationTests {
 	@Test
 	public void testAddMovie() {
 		MovieBean movie = new MovieBean();
-		movie.setMovieId(95);
+		movie.setMovieId(97);
 		movie.setMovieName("chhichhore");
 		movie.setMovieDirector("nitesh");
 		movie.setMovieLengthInMinutes(143);
@@ -69,20 +70,21 @@ class OnlineMovieTicketSystemShaliniApplicationTests {
 		assertThat(movieService.addMovie(movie)).isEqualTo(movie);
 
 	}
-    
-	/*@Test
-	public void testDeleteMovie() {
-		MovieBean movie = new MovieBean();
-		movie.setMovieId(72);
-		movie.setMovieName("sakhi");
-		movie.setMovieDirector("mani");
-		movie.setMovieLengthInMinutes(120);
-		movie.setMovieLanguage("telugu");
-		movie.setMovieGenre("romance");
-		//Mockito.when(moviedao.findOne(1)).thenReturn(movie);
-		//Mockito.when(moviedao.exists(movie.getMovieId())).thenReturn(false);
-		//assertFalse(moviedao.exists(movie.getMovieId()));
-	}*/
+	
+	@Test
+	public void testRemoveMovie() {
+	MovieBean movie = new MovieBean();
+	movie.setMovieId(100);
+	movie.setMovieName("majili");
+	movie.setMovieDirector("shiva");
+	movie.setMovieLengthInMinutes(154);
+	movie.setMovieLanguage("telugu");
+	movie.setMovieGenre("romance");
+	Mockito.when(moviedao.removeMovie(movie.getMovieId())).thenReturn(movie.getMovieId());
+	assertThat(movieService.removeMovie(movie.getMovieId())).isEqualTo(movie.getMovieId());
+
+	} 
+	
 }
 
 

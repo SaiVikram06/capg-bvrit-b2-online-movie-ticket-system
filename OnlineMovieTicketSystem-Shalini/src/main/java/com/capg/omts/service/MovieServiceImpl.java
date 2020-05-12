@@ -29,9 +29,9 @@ public class MovieServiceImpl implements IMovieService {
 	 * values to MovieRestcontroller by using this service layer and movie is deleted by id
 	 */
 	@Override
-	public void removeMovie(int movieId) {
+	public int removeMovie(int movieId) {
 
-		 dao.removeMovie(movieId);
+		 return dao.removeMovie(movieId);
 	}
 
 	/*
