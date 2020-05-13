@@ -1,0 +1,6 @@
+In Postman
+for add method-http://localhost:8080/show/creat
+for delete method-http://localhost:8080/show/removeById/{showId}
+for get all shows method-http://localhost:8080/show/findall
+
+For swagger:http://localhost:8080/swagger-ui.html
